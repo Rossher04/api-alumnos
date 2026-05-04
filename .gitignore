@@ -1,0 +1,13 @@
+__pycache__/
+*.py[cod]
+*.sqlite3
+db.sqlite3
+.venv/
+myenv/
+*.log
+.env
+staticfiles/
+hoja_api_page.png
+alumno.png
+asignacion.png
+curso.png

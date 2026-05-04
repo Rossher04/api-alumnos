@@ -1,0 +1,22 @@
+services:
+  - type: web
+    name: api-alumnos
+    runtime: python
+    buildCommand: "bash ./build.sh"
+    startCommand: "python -m gunicorn api_alumnos.wsgi:application"
+    envVars:
+      - key: SECRET_KEY
+        generateValue: true
+      - key: DEBUG
+        value: "False"
+      - key: ALLOWED_HOSTS
+        value: ".onrender.com"
+      - key: DATABASE_URL
+        fromDatabase:
+          name: api-alumnos-db
+          property: connectionString
+
+databases:
+  - name: api-alumnos-db
+    databaseName: api_alumnos
+    user: api_alumnos
